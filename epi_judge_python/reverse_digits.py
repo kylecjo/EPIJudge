@@ -3,7 +3,18 @@ from test_framework import generic_test
 
 def reverse(x):
     # TODO - you fill in here.
-    return 0
+    result = 0
+    x_remaining = abs(x)
+    while x_remaining:
+        result = result * 10 + x_remaining % 10 
+        x_remaining = x_remaining // 10 
+    if x_remaining not in range(-pow(2, 31), pow(2, 31)):
+        return 0    
+    if x < 0:
+        return result * -1
+    else: 
+        return result
+
 
 
 if __name__ == '__main__':
